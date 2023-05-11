@@ -6,12 +6,12 @@ import Goals from "./src/components/Goals";
 import Tracker from "./src/components/Tracker";
 import Controls from "./src/components/Controls";
 
-
+const goal = 2500;
 
 export default function App() {
 
-  const [intake, setIntake] = useState(0);
-  const [goal, setGoal] = useState(2500);
+  const [intake, setIntake] = useState();
+  
 
   const getPreviousIntake = async () => {
     const value = await AsyncStorage.getItem('@storage-Key');
@@ -52,7 +52,7 @@ export default function App() {
       <Box flex={1} bg="#151926" alignItems="center" justifyContent="flex-start">
          <Box height={50} width="100%" bg="#29313C"></Box>
        <Title/>
-       <Goals goal={goal} setGoal={setGoal}/>
+       <Goals goal={goal} />
        <Tracker intake={intake} goal={goal} setIntake={setIntake}/>
        <Controls intake={intake} setIntake={setIntake}/>
       </Box>
